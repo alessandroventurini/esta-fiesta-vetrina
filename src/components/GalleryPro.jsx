@@ -90,10 +90,7 @@ const GalleryPro = () => {
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-montserrat text-white mb-4">
               Momenti
               <br />
-              <span 
-                className="text-fiesta-blue"
-                style={{ textShadow: '0 0 40px rgba(77, 146, 208, 0.8), 0 0 20px rgba(77, 146, 208, 0.6)' }}
-              >
+              <span className="text-fiesta-blue">
                 Indimenticabili
               </span>
             </h2>

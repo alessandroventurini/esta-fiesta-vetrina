@@ -66,10 +66,7 @@ const BeneficenzaSimple = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-montserrat text-white mb-6 leading-tight">
               Party +
               <br />
-              <span 
-                className="text-fiesta-red"
-                style={{ textShadow: '0 0 40px rgba(194, 56, 76, 0.8), 0 0 20px rgba(194, 56, 76, 0.6)' }}
-              >
+              <span className="text-fiesta-red">
                 Solidarietà
               </span>
             </h2>
