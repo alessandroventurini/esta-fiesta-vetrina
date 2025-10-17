@@ -21,12 +21,12 @@ const GalleryPro = () => {
     { 
       url: img1, 
       location: 'OKTOBERFIESTA - Aperipirlo',
-      badge: '🎉 Evento 2024'
+      badge: '🎉 Beer'
     },
     { 
       url: img2,
       location: 'OKTOBERFIESTA - Aperipirlo',
-      badge: '🎵 DJ Set'
+      badge: '🎵 Music'
     },
     { 
       url: img3,
@@ -159,9 +159,6 @@ const GalleryPro = () => {
                         {photo.location}
                       </h3>
                     </div>
-                    <span className="inline-block bg-fiesta-red/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold w-fit">
-                      {photo.badge}
-                    </span>
                   </motion.div>
 
                   {/* Zoom icon */}
@@ -230,9 +227,6 @@ const GalleryPro = () => {
                     {selectedPhoto.location}
                   </p>
                 </div>
-                <span className="inline-block bg-fiesta-red text-white px-6 py-2 rounded-full font-semibold">
-                  {selectedPhoto.badge}
-                </span>
               </div>
             </motion.div>
           </motion.div>
