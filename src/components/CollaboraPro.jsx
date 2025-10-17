@@ -317,7 +317,7 @@ const CollaboraPro = () => {
             <p className="text-gray-400">Risposta garantita</p>
           </div>
           <div className="p-6">
-            <p className="text-4xl font-bold text-fiesta-red mb-2">4</p>
+            <p className="text-4xl font-bold text-fiesta-red mb-2">3</p>
             <p className="text-gray-400">Eventi/Anno</p>
           </div>
           <div className="p-6">

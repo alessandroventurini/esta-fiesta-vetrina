@@ -75,10 +75,6 @@ const AboutCreative = () => {
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-montserrat text-white mb-6 leading-tight">
               Chi Siamo
-              <br />
-              <span className="bg-gradient-to-r from-fiesta-blue to-fiesta-red bg-clip-text text-transparent">
-                ESTA FIESTA
-              </span>
             </h2>
 
             <div className="space-y-4 text-lg text-gray-300 leading-relaxed">

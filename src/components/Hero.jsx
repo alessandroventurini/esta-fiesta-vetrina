@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   const stats = [
-    { icon: Calendar, value: '4', label: 'Eventi/Anno' },
+    { icon: Calendar, value: '3', label: 'Eventi/Anno' },
     { icon: MapPin, value: '10+', label: 'Format Coinvolti' },
     { icon: Users, value: '20+', label: 'Eventi Realizzati' },
   ];
