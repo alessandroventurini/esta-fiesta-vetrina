@@ -1,14 +1,64 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, MapPin } from 'lucide-react';
-import { photos } from '../data/content';
+
+// Import delle foto dalla cartella gallery
+import img1 from '../assets/gallery/DSC05140.jpg';
+import img2 from '../assets/gallery/DSC05160.jpg';
+import img3 from '../assets/gallery/DSC05198.jpg';
+import img4 from '../assets/gallery/DSC05258.jpg';
+import img5 from '../assets/gallery/DSC05343.jpg';
+import img6 from '../assets/gallery/IMG_1919.JPG';
+import img7 from '../assets/gallery/IMG_1920.JPG';
+import img8 from '../assets/gallery/IMG_1921.JPG';
 
 const GalleryPro = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  // Selezioniamo 8 foto per un layout perfetto
-  const featuredPhotos = photos.slice(0, 8);
+  // Tutte le 8 foto reali dalla cartella gallery
+  const featuredPhotos = [
+    { 
+      url: img1, 
+      location: 'OKTOBERFIESTA - Aperipirlo',
+      badge: '🎉 Evento 2024'
+    },
+    { 
+      url: img2,
+      location: 'OKTOBERFIESTA - Aperipirlo',
+      badge: '🎵 DJ Set'
+    },
+    { 
+      url: img3,
+      location: 'OKTOBERFIESTA - Aperipirlo',
+      badge: '🍹 Cocktail Bar'
+    },
+    { 
+      url: img4,
+      location: 'OKTOBERFIESTA - Aperipirlo',
+      badge: '👥 Crowd'
+    },
+    { 
+      url: img5,
+      location: 'OKTOBERFIESTA - Aperipirlo',
+      badge: '🔥 Atmosfera'
+    },
+    { 
+      url: img6, 
+      location: 'OKTOBERFIESTA - After match',
+      badge: '✨ Night Life'
+    },
+    { 
+      url: img7,
+      location: 'OKTOBERFIESTA - After match',
+      badge: '🎊 Party'
+    },
+    { 
+      url: img8,
+      location: 'OKTOBERFIESTA - After match',
+      badge: '🎪 Festa'
+    },
+  ];
 
   return (
     <>

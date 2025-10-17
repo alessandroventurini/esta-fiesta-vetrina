@@ -11,8 +11,8 @@ export const navLinks = [
 
 export const stats = [
   { number: 4, suffix: '', label: 'Eventi/Anno' },
-  { number: 2023, suffix: '', label: 'Dal' },
-  { number: 100, suffix: '%', label: 'Energia' },
+  { number: 10, suffix: '+', label: 'Format Coinvolti' },
+  { number: 20, suffix: '+', label: 'Eventi Realizzati' },
 ];
 
 export const photos = [

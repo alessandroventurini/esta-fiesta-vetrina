@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Ticket, UtensilsCrossed, Music, PartyPopper } from 'lucide-react';
 import Button from './ui/Button';
+import eventImage from '../assets/IMG_1923.JPG';
 
 const NextEvent = () => {
   // Mock data - in produzione verrebbe da API/CMS
@@ -9,7 +10,7 @@ const NextEvent = () => {
     location: 'Castel Mella (BS)',
     date: 'Venerdì 31 Ottobre',
     time: '19:00 - Late',
-    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200&h=800&q=80',
+    image: eventImage,
     formats: ['Stand Gastronomici', 'Cocktail Bar', 'DJ Set', 'Cena su Prenotazione'],
   };
 

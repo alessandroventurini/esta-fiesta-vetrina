@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown, Sparkles, Calendar, MapPin, Users } from 'lucide-react';
+import { Calendar, MapPin, Users, Sparkles } from 'lucide-react';
 import Button from './ui/Button';
+import heroImage from '../assets/IMG_1922.JPG';
 import logoSvg from '../assets/logo.svg';
 
 const Hero = () => {
@@ -17,8 +18,8 @@ const Hero = () => {
 
   const stats = [
     { icon: Calendar, value: '4', label: 'Eventi/Anno' },
-    { icon: MapPin, value: '2023', label: 'Dal' },
-    { icon: Users, value: '100%', label: 'Energia' },
+    { icon: MapPin, value: '10+', label: 'Format Coinvolti' },
+    { icon: Users, value: '20+', label: 'Eventi Realizzati' },
   ];
 
   return (
@@ -29,13 +30,13 @@ const Hero = () => {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920&h=1080&q=80" 
-          alt="ESTA FIESTA background"
-          className="w-full h-full object-cover scale-110"
+          src={heroImage} 
+          alt="ESTA FIESTA" 
+          className="w-full h-full object-cover"
         />
-        {/* Multiple gradient overlays per depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-fiesta-blue/40 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        {/* Multiple gradient overlays per depth - maggiore opacità per leggibilità */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/50 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/40" />
       </motion.div>
 
       {/* Animated background elements */}

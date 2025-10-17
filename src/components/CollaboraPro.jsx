@@ -1,20 +1,63 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Send, CheckCircle, Mail, User, MapPin, MessageSquare, Phone, Sparkles } from 'lucide-react';
+import { Send, CheckCircle, Mail, User, MapPin, MessageSquare, Phone, Sparkles, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import Button from './ui/Button';
 
 const CollaboraPro = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
-  const onSubmit = (data) => {
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      // Configurazione EmailJS - le chiavi vanno in .env
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Verifica che le chiavi siano configurate
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS non è configurato. Controlla il file .env');
+      }
+
+      // Template parameters che EmailJS invierà
+      const templateParams = {
+        from_name: data.nome,
+        from_email: data.email,
+        phone: data.telefono || 'Non fornito',
+        comune: data.comune,
+        message: data.messaggio,
+        to_email: 'estafiestacastelmella@gmail.com',
+      };
+
+      // Invia email tramite EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      // Successo!
+      setIsSubmitted(true);
       reset();
-    }, 3000);
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 4000);
+
+    } catch (error) {
+      console.error('Errore invio email:', error);
+      setSubmitError('Si è verificato un errore. Riprova o scrivici direttamente a estafiestacastelmella@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const benefits = [
@@ -221,15 +264,41 @@ const CollaboraPro = () => {
                 <p className="text-fiesta-red text-sm">Devi accettare la privacy policy</p>
               )}
 
+              {/* Error Message */}
+              {submitError && (
+                <motion.div
+                  className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-3"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-red-300 text-sm">{submitError}</p>
+                </motion.div>
+              )}
+
               {/* Submit Button */}
               <Button
                 type="submit"
                 variant="primary"
                 size="lg"
                 className="w-full"
+                disabled={isSubmitting}
               >
-                <Send className="w-5 h-5 mr-2" />
-                Invia Richiesta
+                {isSubmitting ? (
+                  <>
+                    <motion.div
+                      className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
+                    Invio in corso...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Invia Richiesta
+                  </>
+                )}
               </Button>
             </form>
           </div>
@@ -252,8 +321,8 @@ const CollaboraPro = () => {
             <p className="text-gray-400">Eventi/Anno</p>
           </div>
           <div className="p-6">
-            <p className="text-4xl font-bold text-fiesta-teal mb-2">2023</p>
-            <p className="text-gray-400">Dal</p>
+            <p className="text-4xl font-bold text-fiesta-teal mb-2">10+</p>
+            <p className="text-gray-400">Format Coinvolti</p>
           </div>
         </motion.div>
       </div>
