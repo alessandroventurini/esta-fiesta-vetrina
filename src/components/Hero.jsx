@@ -69,130 +69,97 @@ const Hero = () => {
             style={{ opacity }}
           >
 
-            {/* Logo - Creative Party Effect: 3D Tilt + RGB Split */}
+            {/* Logo - Elegant WOW: Cinematic Reveal */}
             <motion.div
-              className="mb-8 relative inline-block perspective-1000"
+              className="mb-8 relative inline-block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
-              {/* Logo principale con 3D tilt e RGB chromatic aberration */}
+              {/* Glow sottile pulsante dietro */}
+              <motion.div
+                className="absolute inset-0 -m-8 blur-3xl opacity-40"
+                animate={{
+                  background: [
+                    'radial-gradient(circle, rgba(77,146,208,0.4) 0%, transparent 70%)',
+                    'radial-gradient(circle, rgba(194,56,76,0.4) 0%, transparent 70%)',
+                    'radial-gradient(circle, rgba(77,146,208,0.4) 0%, transparent 70%)',
+                  ],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Logo con dramatic entrance */}
               <motion.div
                 className="relative"
                 initial={{ 
-                  rotateX: -30, 
-                  rotateY: -15,
-                  scale: 0.8,
-                  opacity: 0 
+                  scale: 0.7,
+                  y: 20,
+                  rotateX: -20,
+                  filter: 'blur(20px)',
                 }}
                 animate={{ 
-                  rotateX: 0,
-                  rotateY: 0,
                   scale: 1,
-                  opacity: 1
+                  y: 0,
+                  rotateX: 0,
+                  filter: 'blur(0px)',
                 }}
                 transition={{
-                  duration: 1,
-                  delay: 0.2,
-                  type: "spring",
-                  stiffness: 80
-                }}
-                whileHover={{
-                  rotateY: 5,
-                  rotateX: -5,
-                  transition: { duration: 0.3 }
+                  duration: 1.2,
+                  delay: 0.3,
+                  ease: [0.22, 1, 0.36, 1], // Smooth easing
                 }}
                 style={{
                   transformStyle: 'preserve-3d',
-                  perspective: '1000px'
+                  perspective: '1200px'
                 }}
               >
-                {/* RGB Split layers - Red channel */}
-                <motion.img 
-                  src={logoSvg} 
-                  alt="" 
-                  className="h-24 md:h-32 lg:h-40 w-auto absolute top-0 left-0 opacity-30"
-                  style={{
-                    mixBlendMode: 'screen',
-                    filter: 'brightness(1.1) contrast(1.05)',
-                    transform: 'scaleY(0.85)',
-                  }}
-                  animate={{
-                    x: [-0.5, 0.5, -0.5],
-                    y: [0.3, -0.3, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  aria-hidden="true"
-                />
-
-                {/* RGB Split layers - Blue channel */}
-                <motion.img 
-                  src={logoSvg} 
-                  alt="" 
-                  className="h-24 md:h-32 lg:h-40 w-auto absolute top-0 left-0 opacity-30"
-                  style={{
-                    mixBlendMode: 'screen',
-                    filter: 'brightness(1.1) contrast(1.05) hue-rotate(180deg)',
-                    transform: 'scaleY(0.85)',
-                  }}
-                  animate={{
-                    x: [0.5, -0.5, 0.5],
-                    y: [-0.3, 0.3, -0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  aria-hidden="true"
-                />
-                
-                {/* Logo principale (verde/giallo channel) */}
                 <motion.img 
                   src={logoSvg} 
                   alt="ESTA FIESTA" 
                   className="h-24 md:h-32 lg:h-40 w-auto relative z-10"
                   animate={{
                     y: [-2, 2, -2],
-                    scale: [1, 1.01, 1],
                   }}
                   transition={{
-                    duration: 3.5,
+                    duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
+                  whileHover={{
+                    scale: 1.03,
+                    transition: { duration: 0.3 }
+                  }}
                   style={{
-                    filter: 'drop-shadow(0 8px 24px rgba(77,146,208,0.3)) drop-shadow(0 4px 12px rgba(194,56,76,0.2))',
+                    filter: 'drop-shadow(0 10px 40px rgba(77,146,208,0.25)) drop-shadow(0 5px 15px rgba(194,56,76,0.15))',
                     transform: 'scaleY(0.85)',
                   }}
                 />
               </motion.div>
 
-              {/* Energy particles che escono dal logo */}
-              {[...Array(6)].map((_, i) => (
+              {/* Accent dots minimali */}
+              {[0, 1].map((i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-1.5 h-1.5 rounded-full"
+                  className="absolute w-1 h-1 rounded-full"
                   style={{
-                    background: i % 2 === 0 ? '#4D92D0' : '#C2384C',
-                    left: '50%',
+                    background: i === 0 ? '#4D92D0' : '#C2384C',
+                    left: i === 0 ? '-20px' : 'calc(100% + 20px)',
                     top: '50%',
                   }}
                   animate={{
-                    x: [0, Math.cos(i * 60 * Math.PI / 180) * 80],
-                    y: [0, Math.sin(i * 60 * Math.PI / 180) * 80],
-                    opacity: [0, 0.8, 0],
-                    scale: [0, 1.5, 0],
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
                   }}
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    delay: i * 0.3,
-                    ease: "easeOut"
+                    delay: i * 1,
+                    ease: "easeInOut"
                   }}
                 />
               ))}

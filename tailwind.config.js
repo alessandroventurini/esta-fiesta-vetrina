@@ -14,9 +14,9 @@ export default {
         'fiesta-teal': '#2F7C7D',
       },
       fontFamily: {
-        'montserrat': ['Syne', 'sans-serif'], // Titoli - geometrico edgy
-        'inter': ['DM Sans', 'sans-serif'], // Body text
-        'sans': ['DM Sans', 'sans-serif'], // Default
+        'montserrat': ['Archivo Black', 'sans-serif'], // Titoli - compressed bold
+        'inter': ['Inter', 'sans-serif'], // Body text
+        'sans': ['Inter', 'sans-serif'], // Default
       },
       animation: {
         'bounce-slow': 'bounce 3s infinite',
