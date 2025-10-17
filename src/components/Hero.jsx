@@ -71,7 +71,7 @@ const Hero = () => {
 
             {/* Logo - Elegant WOW: Cinematic Reveal */}
             <motion.div
-              className="mb-8 relative inline-block"
+              className="mb-8 mt-20 md:mt-0 relative inline-block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
