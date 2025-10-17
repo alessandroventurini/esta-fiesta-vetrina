@@ -23,6 +23,7 @@ const Footer = () => {
                 src={logoSvg} 
                 alt="ESTA FIESTA" 
                 className="h-16 w-auto"
+                style={{ transform: 'scaleY(0.85)' }}
               />
             </div>
             <p className="text-white/70 mb-4 text-sm">

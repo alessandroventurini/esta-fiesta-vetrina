@@ -2,14 +2,15 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Ticket, UtensilsCrossed, Music, PartyPopper } from 'lucide-react';
 import Button from './ui/Button';
 import eventImage from '../assets/IMG_1923.JPG';
+import logoAF from '../assets/log_af.svg';
 
 const NextEvent = () => {
   // Mock data - in produzione verrebbe da API/CMS
   const nextEvent = {
     title: 'APERIFIESTA Halloween Edition',
-    location: 'Castel Mella (BS)',
+    location: 'Roncadelle (BS) - Palazzetto dello sport',
     date: 'Venerdì 31 Ottobre',
-    time: '19:00 - Late',
+    time: '19:30 - Late',
     image: eventImage,
     formats: ['Stand Gastronomici', 'Cocktail Bar', 'DJ Set', 'Cena su Prenotazione'],
   };
@@ -39,8 +40,11 @@ const NextEvent = () => {
             <span className="text-white font-semibold">Prossimo Evento</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-montserrat text-white mb-4">
-            {nextEvent.title}
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-montserrat text-white mb-4 flex items-center justify-center gap-3 flex-wrap">
+            <img src={logoAF} alt="APERIFIESTA" className="inline h-32 md:h-40 lg:h-56 align-middle" />
+            <span className="text-orange-600 flex items-center gap-2" style={{ fontFamily: 'Creepster, cursive' }}>
+              🎃 Halloween Edition 🎃
+            </span>
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-400">

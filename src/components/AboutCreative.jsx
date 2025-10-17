@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Heart, Music } from 'lucide-react';
+import logoAF from '../assets/log_af.svg';
 
 const AboutCreative = () => {
   return (
@@ -80,13 +81,13 @@ const AboutCreative = () => {
             <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
               <p>
                 Dal 2023 organizziamo eventi che uniscono <strong>cibo autentico, musica dal vivo 
-                e atmosfera unica</strong>. Insieme ad APERIPIRLO e ORGOGLIO BRESCIANO abbiamo 
-                creato il format APERIFIESTA.
+                e atmosfera unica</strong>. Insieme ad Aperipirlo e Orgoglio Bresciano abbiamo 
+                creato il format <img src={logoAF} alt="APERIFIESTA" className="inline h-10 md:h-12 align-middle mx-1" />.
               </p>
               
               <p>
                 <strong>Stand gastronomici di qualità, cocktail bar curati, DJ set selezionati</strong>. 
-                Un'esperienza completa che porta energia nelle piazze e crea momenti indimenticabili.
+                Un'esperienza completa che porta energia nelle piazze e crea ricordi indimenticabili.
               </p>
             </div>
 
@@ -158,7 +159,7 @@ const AboutCreative = () => {
                 </motion.div>
                 
                 <h3 className="text-5xl md:text-6xl font-bold mb-2 font-montserrat">
-                  4
+                  3 
                 </h3>
                 <p className="text-xl mb-3">Feste/Anno</p>
                 <p className="text-white/80 text-sm leading-relaxed">

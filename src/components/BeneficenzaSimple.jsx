@@ -66,13 +66,16 @@ const BeneficenzaSimple = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-montserrat text-white mb-6 leading-tight">
               Party +
               <br />
-              <span className="bg-gradient-to-r from-fiesta-red to-fiesta-blue bg-clip-text text-transparent">
+              <span 
+                className="text-fiesta-red"
+                style={{ textShadow: '0 0 40px rgba(194, 56, 76, 0.8), 0 0 20px rgba(194, 56, 76, 0.6)' }}
+              >
                 Solidarietà
               </span>
             </h2>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               Ogni evento supporta enti benefici del territorio. 
-              <strong>Festa e solidarietà vanno di pari passo</strong>.
+              <strong>Festa e impegno sociale vanno di pari passo</strong>.
             </p>
           </motion.div>
 
@@ -214,7 +217,9 @@ const BeneficenzaSimple = () => {
                 }}
               >
                 {/* Icon con background blob */}
-                <div className={`relative inline-block mb-4`}>
+                <div className={`relative inline-block mb-4 ${
+                  (ente.name === 'Scuole del Territorio' || ente.name === 'Centro Anziani') ? 'ml-4' : ''
+                }`}>
                   <motion.div
                     className={`absolute inset-0 ${colorClasses[ente.color]} blur-xl opacity-50`}
                     animate={{
@@ -231,10 +236,14 @@ const BeneficenzaSimple = () => {
                   </div>
                 </div>
 
-                <h4 className="font-bold text-xl font-montserrat text-white mb-2">
+                <h4 className={`font-bold text-xl font-montserrat text-white mb-2 ${
+                  (ente.name === 'Scuole del Territorio' || ente.name === 'Centro Anziani') ? 'ml-4' : ''
+                }`}>
                   {ente.name}
                 </h4>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className={`text-gray-300 text-sm leading-relaxed ${
+                  (ente.name === 'Scuole del Territorio' || ente.name === 'Centro Anziani') ? 'ml-4' : ''
+                }`}>
                   {ente.description}
                 </p>
 

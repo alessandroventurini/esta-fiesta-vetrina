@@ -64,6 +64,7 @@ const Navbar = () => {
                 src={logoSvg} 
                 alt="ESTA FIESTA" 
                 className="h-12 md:h-14 w-auto"
+                style={{ transform: 'scaleY(0.85)' }}
               />
             </motion.a>
 

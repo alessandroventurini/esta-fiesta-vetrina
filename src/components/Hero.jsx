@@ -68,29 +68,134 @@ const Hero = () => {
             className="lg:col-span-7 text-white"
             style={{ opacity }}
           >
-            {/* Badge */}
-            <motion.div
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-fiesta-red/20 to-fiesta-blue/20 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10 mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Sparkles className="w-4 h-4 text-fiesta-red" />
-              <span className="text-sm font-semibold">Dal 2023 • Fondatori APERIFIESTA</span>
-            </motion.div>
 
-            {/* Logo */}
+            {/* Logo - Creative Party Effect: 3D Tilt + RGB Split */}
             <motion.div
-              className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8 relative inline-block perspective-1000"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <img 
-                src={logoSvg} 
-                alt="ESTA FIESTA" 
-                className="h-24 md:h-32 lg:h-40 w-auto"
-              />
+              {/* Logo principale con 3D tilt e RGB chromatic aberration */}
+              <motion.div
+                className="relative"
+                initial={{ 
+                  rotateX: -30, 
+                  rotateY: -15,
+                  scale: 0.8,
+                  opacity: 0 
+                }}
+                animate={{ 
+                  rotateX: 0,
+                  rotateY: 0,
+                  scale: 1,
+                  opacity: 1
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 0.2,
+                  type: "spring",
+                  stiffness: 80
+                }}
+                whileHover={{
+                  rotateY: 5,
+                  rotateX: -5,
+                  transition: { duration: 0.3 }
+                }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  perspective: '1000px'
+                }}
+              >
+                {/* RGB Split layers - Red channel */}
+                <motion.img 
+                  src={logoSvg} 
+                  alt="" 
+                  className="h-24 md:h-32 lg:h-40 w-auto absolute top-0 left-0 opacity-30"
+                  style={{
+                    mixBlendMode: 'screen',
+                    filter: 'brightness(1.1) contrast(1.05)',
+                    transform: 'scaleY(0.85)',
+                  }}
+                  animate={{
+                    x: [-0.5, 0.5, -0.5],
+                    y: [0.3, -0.3, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* RGB Split layers - Blue channel */}
+                <motion.img 
+                  src={logoSvg} 
+                  alt="" 
+                  className="h-24 md:h-32 lg:h-40 w-auto absolute top-0 left-0 opacity-30"
+                  style={{
+                    mixBlendMode: 'screen',
+                    filter: 'brightness(1.1) contrast(1.05) hue-rotate(180deg)',
+                    transform: 'scaleY(0.85)',
+                  }}
+                  animate={{
+                    x: [0.5, -0.5, 0.5],
+                    y: [-0.3, 0.3, -0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  aria-hidden="true"
+                />
+                
+                {/* Logo principale (verde/giallo channel) */}
+                <motion.img 
+                  src={logoSvg} 
+                  alt="ESTA FIESTA" 
+                  className="h-24 md:h-32 lg:h-40 w-auto relative z-10"
+                  animate={{
+                    y: [-2, 2, -2],
+                    scale: [1, 1.01, 1],
+                  }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  style={{
+                    filter: 'drop-shadow(0 8px 24px rgba(77,146,208,0.3)) drop-shadow(0 4px 12px rgba(194,56,76,0.2))',
+                    transform: 'scaleY(0.85)',
+                  }}
+                />
+              </motion.div>
+
+              {/* Energy particles che escono dal logo */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1.5 h-1.5 rounded-full"
+                  style={{
+                    background: i % 2 === 0 ? '#4D92D0' : '#C2384C',
+                    left: '50%',
+                    top: '50%',
+                  }}
+                  animate={{
+                    x: [0, Math.cos(i * 60 * Math.PI / 180) * 80],
+                    y: [0, Math.sin(i * 60 * Math.PI / 180) * 80],
+                    opacity: [0, 0.8, 0],
+                    scale: [0, 1.5, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                    ease: "easeOut"
+                  }}
+                />
+              ))}
             </motion.div>
 
             {/* Headline */}
@@ -212,9 +317,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator - Redesigned */}
+      {/* Scroll Indicator - Redesigned (nascosto su mobile) */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}

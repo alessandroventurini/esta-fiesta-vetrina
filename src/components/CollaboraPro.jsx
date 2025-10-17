@@ -106,13 +106,16 @@ const CollaboraPro = () => {
             transition={{ duration: 2, repeat: Infinity }}
           >
             <Sparkles className="w-5 h-5 text-fiesta-blue" />
-            <span className="text-white font-semibold">Organizziamo Insieme</span>
+            <span className="text-white font-semibold">Lavoriamo Insieme</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-montserrat text-white mb-6">
             Organizza
             <br />
-            <span className="bg-gradient-to-r from-fiesta-blue to-fiesta-red bg-clip-text text-transparent">
+            <span 
+              className="text-fiesta-blue"
+              style={{ textShadow: '0 0 40px rgba(77, 146, 208, 0.8), 0 0 20px rgba(77, 146, 208, 0.6)' }}
+            >
               Con Noi
             </span>
           </h2>
