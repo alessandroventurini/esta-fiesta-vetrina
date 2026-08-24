@@ -25,7 +25,6 @@ function App() {
         <Prenota />
         <Sponsor />
         <Dove />
-        <Volontari />
       </main>
       <Footer />
     </div>
