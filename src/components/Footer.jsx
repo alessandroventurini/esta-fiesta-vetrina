@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-2">
             <div className="font-mono text-[10px] tracking-[.16em] uppercase text-fiesta-blue">Dove</div>
-            <div className="text-[15px] leading-[1.5]">{contact.place}<br />Via Marconi 25 — Brescia</div>
+            <div className="text-[15px] leading-[1.5]">Via Marconi 25 — Brescia</div>
           </div>
         </div>
       </div>
