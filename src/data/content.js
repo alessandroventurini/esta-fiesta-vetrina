@@ -130,12 +130,6 @@ export const beerCards = [
 // Ordine curato per la gallery/archivio foto
 export const photos = [ph02, ph03, ph06, ph04, ph07, ph05, ph08, ph01];
 
-export const reservationDates = [
-  { value: 'dom-04', label: 'Domenica 04 — pranzo' },
-  { value: 'ven-02', label: 'Venerdì 02 — sera' },
-  { value: 'sab-03', label: 'Sabato 03 — sera' },
-];
-
 export const volunteerDays = [
   { key: 'ven', label: 'Ven 02' },
   { key: 'sab', label: 'Sab 03' },

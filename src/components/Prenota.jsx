@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { contact, reservationDates } from '../data/content';
+import { contact } from '../data/content';
 
-const initialForm = { nome: '', tel: '', persone: 4, data: 'dom-04', note: '' };
+const initialForm = { nome: '', tel: '', persone: 4, note: '' };
 
 const Prenota = () => {
   const [form, setForm] = useState(initialForm);
@@ -26,7 +26,7 @@ const Prenota = () => {
       await emailjs.send(serviceId, templateId, {
         from_name: form.nome,
         phone: form.tel,
-        message: `Prenotazione lunch party — ${reservationDates.find((d) => d.value === form.data)?.label ?? form.data}. Persone: ${form.persone}. Note: ${form.note || '—'}`,
+        message: `Prenotazione lunch party — Domenica 04, pranzo. Persone: ${form.persone}. Note: ${form.note || '—'}`,
         to_email: contact.email,
       }, publicKey);
       setSent(true);
@@ -106,33 +106,18 @@ const Prenota = () => {
                   style={{ minHeight: 48 }}
                 />
               </label>
-              <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))' }}>
-                <label className="flex flex-col gap-1.5">
-                  <span className="font-mono text-[10px] tracking-[.16em] uppercase">Persone</span>
-                  <input
-                    type="number"
-                    min="1"
-                    max="30"
-                    value={form.persone}
-                    onChange={setField('persone')}
-                    className="px-4 py-3.5 text-base border-2 border-fiesta-ink rounded-xl bg-white"
-                    style={{ minHeight: 48 }}
-                  />
-                </label>
-                <label className="flex flex-col gap-1.5">
-                  <span className="font-mono text-[10px] tracking-[.16em] uppercase">Data</span>
-                  <select
-                    value={form.data}
-                    onChange={setField('data')}
-                    className="px-4 py-3.5 text-base border-2 border-fiesta-ink rounded-xl bg-white"
-                    style={{ minHeight: 48 }}
-                  >
-                    {reservationDates.map((d) => (
-                      <option key={d.value} value={d.value}>{d.label}</option>
-                    ))}
-                  </select>
-                </label>
-              </div>
+              <label className="flex flex-col gap-1.5">
+                <span className="font-mono text-[10px] tracking-[.16em] uppercase">Persone</span>
+                <input
+                  type="number"
+                  min="1"
+                  max="30"
+                  value={form.persone}
+                  onChange={setField('persone')}
+                  className="px-4 py-3.5 text-base border-2 border-fiesta-ink rounded-xl bg-white"
+                  style={{ minHeight: 48 }}
+                />
+              </label>
               <label className="flex flex-col gap-1.5">
                 <span className="font-mono text-[10px] tracking-[.16em] uppercase">Note (allergie, bambini, seggioloni)</span>
                 <textarea
