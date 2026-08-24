@@ -1,229 +1,161 @@
-// Tutti i contenuti e dati mock centralizzati
+// Tutti i contenuti e dati centralizzati — OktoberFiesta 2026
+
+import photoVenerdi from '../assets/oktoberfiesta/poster-venerdi.png';
+import photoSabato from '../assets/oktoberfiesta/poster-sabato.png';
+import photoDomenica from '../assets/oktoberfiesta/poster-domenica.png';
+
+import ph01 from '../assets/oktoberfiesta/ph-01.jpg';
+import ph02 from '../assets/oktoberfiesta/ph-02.jpg';
+import ph03 from '../assets/oktoberfiesta/ph-03.jpg';
+import ph04 from '../assets/oktoberfiesta/ph-04.jpg';
+import ph05 from '../assets/oktoberfiesta/ph-05.jpg';
+import ph06 from '../assets/oktoberfiesta/ph-06.jpg';
+import ph07 from '../assets/oktoberfiesta/ph-07.jpg';
+import ph08 from '../assets/oktoberfiesta/ph-08.jpg';
+
+export const heroImage = ph01;
 
 export const navLinks = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'about', label: 'Chi Siamo', href: '#about' },
-  { id: 'next-event', label: 'Prossimo Evento', href: '#next-event' },
-  { id: 'gallery', label: 'Gallery', href: '#gallery' },
-  { id: 'beneficenza', label: 'Beneficenza', href: '#beneficenza' },
-  { id: 'collabora', label: 'Collabora', href: '#collabora' },
+  { label: 'Chi siamo', href: '#chi-siamo' },
+  { label: 'Eventi', href: '#eventi' },
+  { label: 'OktoberFiesta', href: '#programma' },
+  { label: 'Birre & cucina', href: '#birre' },
+  { label: 'Foto', href: '#foto' },
+  { label: 'Prenota', href: '#prenota' },
+  { label: 'Sponsor', href: '#sponsor' },
+  { label: 'Dove siamo', href: '#dove' },
 ];
 
-export const stats = [
-  { number: 4, suffix: '', label: 'Eventi/Anno' },
-  { number: 10, suffix: '+', label: 'Format Coinvolti' },
-  { number: 20, suffix: '+', label: 'Eventi Realizzati' },
-];
-
-export const photos = [
-  { 
-    url: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80', 
-    location: 'Roccaforte, Luglio 2024',
-    badge: '🔥 Sold Out'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80',
-    location: 'Montefiore, Agosto 2024',
-    badge: '📸 Best Food'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80',
-    location: 'Castelfranco, Giugno 2024',
-    badge: '🎵 Musica Live'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80',
-    location: 'Valle Verde, Maggio 2024',
-    badge: '🌟 Best Night'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80',
-    location: 'Monterosso, Settembre 2024',
-    badge: '🎉 Festa Vintage'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1543007631-283050bb3e8c?w=800&q=80',
-    location: 'Borgo Antico, Luglio 2024',
-    badge: '🍕 Food Fest'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80',
-    location: 'Collelungo, Agosto 2024',
-    badge: '🎸 Rock Night'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80',
-    location: 'Marina del Sole, Giugno 2024',
-    badge: '🌅 Sunset Edition'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80',
-    location: 'Fontanelle, Settembre 2024',
-    badge: '💃 Dance Floor'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
-    location: 'Pietralunga, Luglio 2024',
-    badge: '🎭 Tema Anni 90'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800&q=80',
-    location: 'Colle Alto, Agosto 2024',
-    badge: '🍻 Beer Festival'
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80',
-    location: 'Vallechiara, Giugno 2024',
-    badge: '⭐ New Opening'
-  },
-];
-
-export const menuCards = [
-  {
-    title: 'Cibo da Sagra',
-    items: [
-      'Porchetta e salamelle alla brace',
-      'Fritto misto e arancini',
-      'Primi della tradizione',
-      'Dolci artigianali'
-    ],
-    badge: 'Produttori Locali'
-  },
-  {
-    title: 'Drink Bar',
-    items: [
-      'Birre artigianali regionali',
-      'Cocktail con ingredienti km0',
-      'Spritz e classici rivisitati',
-      'Analcolici homemade'
-    ],
-    badge: 'Mixology & Tradizione'
-  },
-  {
-    title: 'Format Musicali',
-    items: [
-      'Live band emergenti locali',
-      'DJ set Indie/Pop/Reggaeton',
-      'Silent Disco sotto le stelle',
-      'Karaoke della nonna'
-    ],
-    badge: 'Talenti del Territorio'
-  }
-];
+// Data/ora di apertura di OktoberFiesta, usata per il countdown
+export const eventCountdownTarget = new Date(2026, 9, 2, 18, 0, 0).getTime();
 
 export const formats = [
   {
-    name: 'FIESTA Sunset',
-    description: 'Aperitivo + Live Music (18:00-22:00)',
-    color: 'fiesta-blue'
+    season: 'Primavera',
+    name: 'Evento di primavera',
+    when: 'Date in definizione',
+    status: 'In arrivo',
+    what: "Il primo appuntamento dell'anno: dj set, cucina e bar all'aperto.",
+    place: 'Brescia e provincia',
+    bg: '#63ADE2',
+    fg: '#0E1116',
   },
   {
-    name: 'FIESTA Night',
-    description: 'Cena + DJ Set (20:00-02:00)',
-    color: 'fiesta-red'
+    season: 'Estate',
+    name: 'Evento estivo',
+    when: 'Date in definizione',
+    status: 'In arrivo',
+    what: "La festa più grande dell'anno, all'aria aperta e fino a notte.",
+    place: 'Brescia e provincia',
+    bg: '#F2F1EC',
+    fg: '#0E1116',
   },
   {
-    name: 'FIESTA Weekend',
-    description: 'Format 2 giorni con mercatini',
-    color: 'fiesta-teal'
+    season: 'Autunno',
+    name: 'OktoberFiesta',
+    when: '02 · 03 · 04 Ottobre 2026',
+    status: 'Prossimo',
+    what: 'Tre giorni a tema tedesco: birre premium, cibo da sagra e tre format musicali.',
+    place: 'Via Luigi Marconi 25, Castel Mella',
+    bg: '#C8143C',
+    fg: '#F2F1EC',
   },
-  {
-    name: 'FIESTA Vintage',
-    description: "Festa anni '80/'90 a tema",
-    color: 'fiesta-blue'
-  }
 ];
 
-export const partners = [
-  { name: 'Comune di Roccaforte', type: 'Amministrazione' },
-  { name: 'Pro Loco Valle Verde', type: 'Associazione' },
-  { name: 'Birrificio Artigianale del Colle', type: 'Partner Food' },
-  { name: 'Radio Locale 105', type: 'Media Partner' },
-  { name: 'Gruppo Giovani Montefiore', type: 'Organizzatori' },
-  { name: 'Ristorante La Taverna', type: 'Partner Food' },
-  { name: 'DJ Collective Local Beats', type: 'Partner Musica' },
-];
-
-export const projects = [
+export const days = [
   {
-    title: 'FIESTA Academy',
-    description: 'Workshop gratuiti per giovani aspiranti DJ, bartender e organizzatori di eventi. Impara dai professionisti del settore e porta le tue idee sul palco delle prossime FIESTA.',
-    cta: 'Candidati per il Prossimo Corso',
-    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80'
+    weekday: 'Venerdì',
+    date: '02 Ottobre',
+    partner: 'Aperipirlo',
+    music: 'Commerciale',
+    hours: '18 › 24',
+    poster: photoVenerdi,
+    note: 'Apertura della festa: area cucina attiva e due postazioni bar.',
+    slots: [
+      { time: '18:00', what: 'Apertura cancelli e aperitivo' },
+      { time: '18:00', what: 'Area cucina' },
+      { time: '21:00', what: 'DJ set Aperipirlo' },
+      { time: '24:00', what: 'Chiusura' },
+    ],
   },
   {
-    title: 'Art in Fiesta',
-    description: 'Collaborazioni con street artist e artisti emergenti per trasformare ogni festa in una galleria a cielo aperto. Murales, installazioni e performance live che rimangono nel territorio.',
-    cta: 'Scopri gli Artisti',
-    image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80'
+    weekday: 'Sabato',
+    date: '03 Ottobre',
+    partner: 'Tutti a 90 · on tour',
+    music: 'Anni 90',
+    hours: '18 › 24',
+    poster: photoSabato,
+    note: 'Serata clou, la più affollata dei tre giorni.',
+    slots: [
+      { time: '18:00', what: 'Apertura, birre alla spina' },
+      { time: '18:00', what: 'Area cucina' },
+      { time: '21:30', what: 'Tutti a 90 — on tour' },
+      { time: '24:00', what: 'Chiusura' },
+    ],
   },
   {
-    title: 'Fiesta Green',
-    description: 'Il nostro impegno per l\'ambiente: stoviglie compostabili, raccolta differenziata, energia da fonti rinnovabili. Perché festeggiare deve essere sostenibile.',
-    cta: 'Scopri le Nostre Policy',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80'
-  }
+    weekday: 'Domenica',
+    date: '04 Ottobre',
+    partner: 'Lo Spiedone · lunch party',
+    music: 'House / Tech house',
+    hours: 'Pranzo',
+    poster: photoDomenica,
+    note: 'Pranzo con lo spiedone e Splendido Splendente. Solo su prenotazione.',
+    slots: [
+      { time: '12:30', what: 'Lo Spiedone · pranzo' },
+      { time: '14:30', what: 'Splendido Splendente' },
+      { time: '18:00', what: 'Chiusura della festa' },
+    ],
+  },
 ];
 
-export const charityOrgs = [
+export const beerCards = [
   {
-    name: 'Croce Rossa Locale',
-    amount: '€15.000',
-    description: 'Donati per nuove ambulanze'
+    number: '5',
+    title: 'Tipologie di birra',
+    desc: 'Selezione premium a tema tedesco ed europeo, alla spina per tutti e tre i giorni.',
   },
   {
-    name: 'Scuole del Territorio',
-    amount: '€20.000',
-    description: 'Borse di studio per giovani talenti'
+    number: '1',
+    title: 'Area cucina',
+    desc: 'Cibo tipico da sagra: prodotti tradizionali, porzioni serie, servizio continuo dalle 18.',
   },
   {
-    name: 'Associazioni Sportive',
-    amount: '€18.000',
-    description: 'Supporto alle squadre giovanili'
+    number: '2',
+    title: 'Postazioni bar',
+    desc: 'Bar professionali con cocktail e signature drink dedicati alla festa.',
   },
-  {
-    name: 'Centro Anziani',
-    amount: '€12.000',
-    description: 'Attività ricreative e assistenza'
-  },
-  {
-    name: 'Biblioteca Comunale',
-    amount: '€10.000',
-    description: 'Nuovi libri e spazi digitali'
-  }
 ];
 
-export const rappresentantiOptions = [
-  'Comune/Amministrazione',
-  'Pro-Loco',
-  'Associazione Giovanile',
-  'Privato/Altro'
+// Ordine curato per la gallery/archivio foto
+export const photos = [ph02, ph03, ph06, ph04, ph07, ph05, ph08, ph01];
+
+export const reservationDates = [
+  { value: 'dom-04', label: 'Domenica 04 — pranzo' },
+  { value: 'ven-02', label: 'Venerdì 02 — sera' },
+  { value: 'sab-03', label: 'Sabato 03 — sera' },
 ];
 
-export const mesiOptions = [
-  'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
-  'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
+export const volunteerDays = [
+  { key: 'ven', label: 'Ven 02' },
+  { key: 'sab', label: 'Sab 03' },
+  { key: 'dom', label: 'Dom 04' },
+  { key: 'prima', label: 'Allestimenti' },
 ];
 
-export const socialLinks = [
-  { name: 'Instagram', url: 'https://instagram.com/estafiestaaa' },
-  { name: 'Facebook', url: 'https://facebook.com/estafiestaaa' },
-];
-
-export const footerLinks = {
-  utilLinks: [
-    { label: 'Chi Siamo', href: '#about' },
-    { label: 'Prossimo Evento', href: '#next-event' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Beneficenza', href: '#beneficenza' },
-  ],
-  collaboraLinks: [
-    { label: 'Organizza con Noi', href: '#collabora' },
-    { label: 'Contattaci', href: '#collabora' },
-  ],
-  contactInfo: {
-    email: 'estafiestacastelmella@gmail.com',
-    instagram: '@estafiestaaa',
-    facebook: 'estafiestaaa'
-  }
+export const contact = {
+  phone: '329 483 2875',
+  phoneHref: 'tel:3294832875',
+  whatsappHref: 'https://wa.me/393294832875',
+  email: 'estafiestacastelmella@gmail.com',
+  instagram: '@estafiestaaa',
+  instagramHref: 'https://instagram.com/estafiestaaa',
+  website: 'www.estafiesta.it',
+  websiteHref: 'https://www.estafiesta.it',
+  address: 'Via Marconi 25, 25030 Castel Mella (BS)',
+  place: 'Oratorio di Castel Mella',
+  mapsHref: 'https://maps.google.com/?q=Via+Marconi+25+Castel+Mella+Brescia',
+  osmEmbedSrc: 'https://www.openstreetmap.org/export/embed.html?bbox=10.1290%2C45.4855%2C10.1590%2C45.5005&layer=mapnik&marker=45.4930%2C10.1440',
 };
+
+export const sponsorDeckHref = '/sponsor-deck.pdf';

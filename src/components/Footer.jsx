@@ -1,131 +1,25 @@
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Facebook, Music, Disc } from 'lucide-react';
-import { footerLinks, socialLinks } from '../data/content';
-import logoSvg from '../assets/logo.svg';
+import { contact } from '../data/content';
+import logoWhite from '../assets/oktoberfiesta/logo-white.png';
 
 const Footer = () => {
-  const socialIcons = {
-    Instagram: Instagram,
-    Facebook: Facebook,
-    TikTok: Music,
-    Spotify: Disc,
-  };
-
   return (
-    <footer id="footer" className="bg-fiesta-dark text-white py-12">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand Column */}
-          <div>
-            <div className="mb-4">
-              <img 
-                src={logoSvg} 
-                alt="ESTA FIESTA" 
-                className="h-16 w-auto"
-                style={{ transform: 'scaleY(0.85)' }}
-              />
-            </div>
-            <p className="text-white/70 mb-4 text-sm">
-              Dal 2023 organizziamo eventi che uniscono food, music e socialità nei comuni bresciani.
-            </p>
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => {
-                const Icon = socialIcons[social.name];
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 hover:bg-fiesta-blue rounded-full flex items-center justify-center transition-colors"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    aria-label={social.name}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </motion.a>
-                );
-              })}
-            </div>
+    <footer className="px-[18px] pt-[clamp(40px,7vw,80px)] pb-[30px] bg-fiesta-red text-fiesta-cream border-t-2 border-fiesta-ink">
+      <div className="max-w-[1180px] mx-auto flex flex-col gap-[30px]">
+        <img src={logoWhite} alt="Esta Fiesta" style={{ width: 'min(260px, 60vw)' }} />
+        <div className="grid gap-[22px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+          <div className="flex flex-col gap-2">
+            <div className="font-mono text-[10px] tracking-[.16em] uppercase text-fiesta-blue">Contatti</div>
+            <a href={contact.phoneHref} className="text-fiesta-cream text-[17px] font-extrabold">{contact.phone}</a>
+            <a href={`mailto:${contact.email}`} className="text-fiesta-cream text-[15px] font-extrabold break-all">{contact.email}</a>
           </div>
-
-          {/* Link Utili */}
-          <div>
-            <h4 className="font-bold font-montserrat mb-4">Link Utili</h4>
-            <ul className="space-y-2">
-              {footerLinks.utilLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col gap-2">
+            <div className="font-mono text-[10px] tracking-[.16em] uppercase text-fiesta-blue">Social</div>
+            <a href={contact.instagramHref} target="_blank" rel="noreferrer" className="text-fiesta-cream text-[17px] font-extrabold">{contact.instagram}</a>
+            <a href={contact.websiteHref} target="_blank" rel="noreferrer" className="text-fiesta-cream text-[17px] font-extrabold">{contact.website}</a>
           </div>
-
-          {/* Collabora */}
-          <div>
-            <h4 className="font-bold font-montserrat mb-4">Collabora</h4>
-            <ul className="space-y-2">
-              {footerLinks.collaboraLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contatti */}
-          <div>
-            <h4 className="font-bold font-montserrat mb-4">Contatti</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-white/70 text-sm">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:estafiestacastelmella@gmail.com" className="hover:text-white transition-colors">
-                  estafiestacastelmella@gmail.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-white/70 text-sm">
-                <Instagram className="w-4 h-4 flex-shrink-0" />
-                <a href="https://instagram.com/estafiestaaa" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  @estafiestaaa
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-white/70 text-sm">
-                <Facebook className="w-4 h-4 flex-shrink-0" />
-                <a href="https://facebook.com/estafiestaaa" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  estafiestaaa
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-6 text-center">
-          <p className="text-sm text-white/60 mb-2">
-            © 2025 ESTA FIESTA. Dal 2023.
-          </p>
-          <div className="flex justify-center gap-4 text-sm">
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <span className="text-white/40">|</span>
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              Cookie Policy
-            </a>
-            <span className="text-white/40">|</span>
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              Termini e Condizioni
-            </a>
+          <div className="flex flex-col gap-2">
+            <div className="font-mono text-[10px] tracking-[.16em] uppercase text-fiesta-blue">Dove</div>
+            <div className="text-[15px] leading-[1.5]">{contact.place}<br />Via Marconi 25 — Brescia</div>
           </div>
         </div>
       </div>

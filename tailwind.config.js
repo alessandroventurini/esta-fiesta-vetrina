@@ -7,28 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        'fiesta-blue': '#4D92D0',
-        'fiesta-red': '#C2384C',
-        'fiesta-light': '#F4F4F4',
-        'fiesta-dark': '#333333',
-        'fiesta-teal': '#2F7C7D',
+        'fiesta-cream': '#F2F1EC',
+        'fiesta-ink': '#0E1116',
+        'fiesta-panel': '#171B22',
+        'fiesta-red': '#C8143C',
+        'fiesta-blue': '#63ADE2',
       },
       fontFamily: {
-        'montserrat': ['Archivo Black', 'sans-serif'], // Titoli - compressed bold
-        'inter': ['Inter', 'sans-serif'], // Body text
-        'sans': ['Inter', 'sans-serif'], // Default
+        sans: ['Montserrat', 'Helvetica', 'sans-serif'],
+        mono: ['"Space Mono"', 'monospace'],
+      },
+      keyframes: {
+        blink: {
+          '0%, 60%': { opacity: 1 },
+          '61%, 100%': { opacity: .25 },
+        },
+        floaty: {
+          '0%, 100%': { transform: 'translateY(0) rotate(-3deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(3deg)' },
+        },
       },
       animation: {
-        'bounce-slow': 'bounce 3s infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        blink: 'blink 1s steps(1) infinite',
+        floaty: 'floaty 7s ease-in-out infinite',
       },
-      backdropBlur: {
-        xs: '2px',
-      },
-      boxShadow: {
-        'glow-blue': '0 0 20px rgba(77, 146, 208, 0.5)',
-        'glow-red': '0 0 20px rgba(194, 56, 76, 0.5)',
-      }
     },
   },
   plugins: [],

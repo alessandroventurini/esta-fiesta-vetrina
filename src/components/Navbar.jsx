@@ -1,164 +1,102 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { navLinks } from '../data/content';
-import Button from './ui/Button';
-import { useScrollspy } from '../hooks/useScrollspy';
-import logoSvg from '../assets/logo.svg';
+import { useEffect, useState } from 'react';
+import { navLinks, contact } from '../data/content';
+import logoWhite from '../assets/oktoberfiesta/logo-white.png';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const activeSection = useScrollspy(navLinks.map(link => link.id), 100);
+  const [pastHero, setPastHero] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      const hero = document.getElementById('top');
+      const limit = hero ? hero.offsetHeight - 70 : 400;
+      setPastHero(window.scrollY > limit);
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMobileMenuOpen]);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
-  const handleLinkClick = (href) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <>
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-gray-900/95 backdrop-blur-md shadow-lg shadow-fiesta-blue/10 py-3' 
-            : 'bg-transparent py-5'
-        }`}
-        transition={{ duration: 0.5 }}
+      <div
+        className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-between gap-3 px-3.5 py-3 transition-colors duration-300"
+        style={{ background: pastHero ? '#0E1116' : 'transparent' }}
       >
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <motion.a 
-              href="#home"
-              className="flex items-center"
-              whileHover={{ scale: 1.05 }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick('#home');
-              }}
-            >
-              <img 
-                src={logoSvg} 
-                alt="ESTA FIESTA" 
-                className="h-12 md:h-14 w-auto"
-                style={{ transform: 'scaleY(0.85)' }}
-              />
-            </motion.a>
+        <a href="#top" className="flex items-center min-w-0">
+          <img src={logoWhite} alt="Esta Fiesta" className="block w-[52px] h-[52px] object-contain" />
+        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="#prenota"
+            className="inline-block px-3.5 py-2.5 bg-fiesta-red text-fiesta-cream border-2 border-fiesta-ink rounded-full font-black text-xs tracking-[.08em] uppercase hover:bg-fiesta-ink transition-colors"
+          >
+            Prenota
+          </a>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Menu"
+            className="flex flex-col justify-center gap-[5px] w-[46px] h-11 px-[11px] bg-fiesta-ink border-2 border-fiesta-ink rounded-full cursor-pointer"
+          >
+            <span className="block h-0.5 bg-fiesta-cream" />
+            <span className="block h-0.5 bg-fiesta-cream" />
+            <span className="block h-0.5 bg-fiesta-cream" />
+          </button>
+        </div>
+      </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <motion.a
-                  key={link.id}
-                  href={link.href}
-                  className={`font-medium transition-colors hover:text-fiesta-red ${
-                    activeSection === link.id ? 'text-fiesta-red' : ''
-                  }`}
-                  whileHover={{ y: -2 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </div>
-
-            {/* CTA Button Desktop */}
-            <div className="hidden md:block">
-              <Button 
-                variant="primary" 
-                size="md"
-                onClick={() => handleLinkClick('#collabora')}
-              >
-                Richiedi Evento
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-[70] bg-fiesta-red flex flex-col p-[18px] pb-8">
+          <div className="flex justify-end">
             <button
-              className="md:hidden p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle mobile menu"
+              type="button"
+              onClick={() => setMenuOpen(false)}
+              className="w-[46px] h-[46px] rounded-full bg-transparent border-2 border-fiesta-cream text-fiesta-cream text-xl font-black cursor-pointer"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              ×
             </button>
           </div>
-        </div>
-      </motion.nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 bg-fiesta-dark z-40 md:hidden"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-          >
-            <div className="flex flex-col items-center justify-center h-full gap-8 p-8">
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.id}
-                  href={link.href}
-                  className="text-white text-2xl font-bold font-montserrat"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.1 }}
+          <nav className="flex flex-col gap-0.5 my-auto">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-[clamp(30px,9vw,64px)] font-black leading-[1.02] tracking-[-0.03em] uppercase text-fiesta-cream hover:text-fiesta-blue transition-colors"
               >
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => handleLinkClick('#collabora')}
-                >
-                  Richiedi Evento
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex flex-wrap gap-4 font-mono text-xs tracking-[.08em] uppercase">
+            <a href={contact.instagramHref} target="_blank" rel="noreferrer" className="text-fiesta-cream border-b border-fiesta-cream/50">
+              {contact.instagram}
+            </a>
+            <a href={`mailto:${contact.email}`} className="text-fiesta-cream border-b border-fiesta-cream/50">
+              Email
+            </a>
+            <a href={contact.phoneHref} className="text-fiesta-cream border-b border-fiesta-cream/50">
+              {contact.phone}
+            </a>
+          </div>
+        </div>
+      )}
     </>
   );
 };

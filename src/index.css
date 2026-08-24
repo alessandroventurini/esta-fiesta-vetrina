@@ -2,54 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4D92D0;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #C2384C;
-}
-
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: #0a0a0a;
-  color: #f4f4f4;
+  background: #F2F1EC;
+  color: #0E1116;
+  font-family: 'Montserrat', Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Animation keyframes */
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Prevent horizontal scroll */
 html, body {
   overflow-x: hidden;
 }
 
-/* Focus styles for accessibility */
+::selection {
+  background: #C8143C;
+  color: #F2F1EC;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2F1EC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8143C;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0E1116;
+}
+
 *:focus-visible {
-  outline: 2px solid #4D92D0;
+  outline: 2px solid #63ADE2;
   outline-offset: 2px;
 }
