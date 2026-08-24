@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuova prenotazione — Esta Fiesta</title>
+<!--[if mso]>
+<style>
+  table {border-collapse: collapse;}
+  .fallback-font { font-family: Arial, sans-serif !important; }
+</style>
+<![endif]-->
+</head>
+<body style="margin:0; padding:0; background-color:#0E1116; font-family:'Montserrat', Helvetica, Arial, sans-serif;">
+  <!-- Preheader (hidden) -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    Nuova prenotazione lunch party — {{from_name}}, {{phone}}
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0E1116; padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background-color:#F2F1EC; border-radius:20px; overflow:hidden; border:2px solid #0E1116;">
+
+          <!-- Header band -->
+          <tr>
+            <td style="background-color:#C8143C; padding:28px 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="72" valign="middle" style="padding-right:18px;">
+                    <img src="https://estafiesta.it/email/logo-badge.png" width="72" height="72" alt="Esta Fiesta" style="display:block; border:0; outline:none; text-decoration:none; width:72px; height:72px;">
+                  </td>
+                  <td valign="middle">
+                    <p style="margin:0; font-family:'Space Mono', 'Courier New', monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#F2F1EC; opacity:.85;">
+                      Esta Fiesta &middot; OktoberFiesta 2026
+                    </p>
+                    <h1 style="margin:6px 0 0; font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:26px; line-height:1.15; color:#F2F1EC; font-weight:800; letter-spacing:-0.5px;">
+                      Nuova prenotazione! 🍻
+                    </h1>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px 32px 8px;">
+              <p style="margin:0 0 24px; font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:15px; line-height:1.6; color:#0E1116;">
+                È arrivata una nuova richiesta di prenotazione dal sito. Ecco i dettagli:
+              </p>
+
+              <!-- Detail card -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border:2px solid #0E1116; border-radius:14px; margin-bottom:24px;">
+                <tr>
+                  <td style="padding:20px 22px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding:0 0 14px; border-bottom:1px solid #EEEDE6;">
+                          <p style="margin:0; font-family:'Space Mono', 'Courier New', monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#C8143C; font-weight:700;">Nome</p>
+                          <p style="margin:4px 0 0; font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:16px; font-weight:700; color:#0E1116;">{{from_name}}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:14px 0; border-bottom:1px solid #EEEDE6;">
+                          <p style="margin:0; font-family:'Space Mono', 'Courier New', monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#C8143C; font-weight:700;">Telefono</p>
+                          <p style="margin:4px 0 0; font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:16px; font-weight:700; color:#0E1116;">
+                            <a href="tel:{{phone}}" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#0E1116; text-decoration:none;">{{phone}}</a>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:14px 0 0;">
+                          <p style="margin:0; font-family:'Space Mono', 'Courier New', monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#C8143C; font-weight:700;">Dettagli prenotazione</p>
+                          <p style="margin:4px 0 0; font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:15px; line-height:1.55; color:#0E1116;">{{message}}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
+                <tr>
+                  <td style="border-radius:10px; background-color:#0E1116;">
+                    <a href="tel:{{phone}}" style="display:inline-block; padding:14px 26px; font-size:13px; font-family:'Space Mono', 'Courier New', monospace; letter-spacing:1.5px; text-transform:uppercase; color:#F2F1EC; text-decoration:none; font-weight:700;">
+                      📞 Chiama {{from_name}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding:0 32px;">
+              <div style="border-top:2px dashed #0E1116; opacity:.15;"></div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 32px 28px;">
+              <p style="margin:0; font-family:'Space Mono', 'Courier New', monospace; font-size:11px; letter-spacing:1px; color:#0E1116; opacity:.55; line-height:1.6;">
+                Ricevuto automaticamente dal form di prenotazione su estafiesta.it<br>
+                Via Marconi 25, 25030 Castel Mella (BS)
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+        <!-- Sub-footer outside card -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; margin-top:18px;">
+          <tr>
+            <td align="center">
+              <p style="margin:0; font-family:'Space Mono', 'Courier New', monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#F2F1EC; opacity:.4;">
+                Esta Fiesta &middot; 02&ndash;03&ndash;04 Ottobre 2026
+              </p>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

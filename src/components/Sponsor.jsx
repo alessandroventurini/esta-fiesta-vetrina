@@ -1,5 +1,5 @@
 import { sponsorDeckHref } from '../data/content';
-import logoWhite from '../assets/oktoberfiesta/logo-white.png';
+import logoBadge from '../assets/oktoberfiesta/logo-badge.png';
 
 const Sponsor = () => {
   return (
@@ -23,9 +23,9 @@ const Sponsor = () => {
         </div>
         <div className="justify-self-center">
           <img
-            src={logoWhite}
+            src={logoBadge}
             alt="Esta Fiesta"
-            className="animate-floaty bg-fiesta-cream rounded-full p-3.5"
+            className="animate-floaty"
             style={{ width: 'min(300px, 70vw)' }}
           />
         </div>

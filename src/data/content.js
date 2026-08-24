@@ -49,17 +49,7 @@ export const formats = [
     place: 'Brescia e provincia',
     bg: '#F2F1EC',
     fg: '#0E1116',
-  },
-  {
-    season: 'Autunno',
-    name: 'OktoberFiesta',
-    when: '02 · 03 · 04 Ottobre 2026',
-    status: 'Prossimo',
-    what: 'Tre giorni a tema tedesco: birre premium, cibo da sagra e tre format musicali.',
-    place: 'Via Luigi Marconi 25, Castel Mella',
-    bg: '#C8143C',
-    fg: '#F2F1EC',
-  },
+  }
 ];
 
 export const days = [
