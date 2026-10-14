@@ -52,3 +52,45 @@ html, body {
   outline: 2px solid #63ADE2;
   outline-offset: 2px;
 }
+
+.fiesta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.photo-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #0E1116;
+  color: #F2F1EC;
+}
+
+.photo-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.photo-dialog::backdrop { background: #0E1116; }
+.viewer-header { padding: max(12px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) 12px max(18px, env(safe-area-inset-left)); }
+.viewer-footer { padding: 12px max(18px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left)); }
+.viewer-control { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid #F2F1EC66; border-radius: 999px; font-size: 22px; flex-shrink: 0; }
+.viewer-control:disabled { opacity: .25; cursor: default; }
+.viewer-control:not(:disabled):hover { background: #C8143C; }
+.menu-dialog { background: #C8143C; }
+.menu-dialog[open] { display: flex; flex-direction: column; padding: max(18px, env(safe-area-inset-top)) 18px max(32px, env(safe-area-inset-bottom)); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

@@ -4,25 +4,10 @@ import photoVenerdi from '../assets/oktoberfiesta/poster-venerdi.png';
 import photoSabato from '../assets/oktoberfiesta/poster-sabato.png';
 import photoDomenica from '../assets/oktoberfiesta/poster-domenica.png';
 
-import ph01 from '../assets/oktoberfiesta/ph-01.jpg';
-import ph02 from '../assets/oktoberfiesta/ph-02.jpg';
-import ph03 from '../assets/oktoberfiesta/ph-03.jpg';
-import ph04 from '../assets/oktoberfiesta/ph-04.jpg';
-import ph05 from '../assets/oktoberfiesta/ph-05.jpg';
-import ph06 from '../assets/oktoberfiesta/ph-06.jpg';
-import ph07 from '../assets/oktoberfiesta/ph-07.jpg';
-import ph08 from '../assets/oktoberfiesta/ph-08.jpg';
-
-export const heroImage = ph01;
-
 export const navLinks = [
-  { label: 'Chi siamo', href: '#chi-siamo' },
-  { label: 'Eventi', href: '#eventi' },
-  { label: 'OktoberFiesta', href: '#programma' },
-  { label: 'Birre & cucina', href: '#birre' },
   { label: 'Foto', href: '#foto' },
-  { label: 'Prenota', href: '#prenota' },
-  { label: 'Sponsor', href: '#sponsor' },
+  { label: 'Chi siamo', href: '#chi-siamo' },
+  { label: 'Grazie', href: '#sponsor' },
   { label: 'Dove siamo', href: '#dove' },
 ];
 
@@ -116,9 +101,6 @@ export const beerCards = [
     desc: 'Bar professionali con cocktail e signature drink dedicati alla festa.',
   },
 ];
-
-// Ordine curato per la gallery/archivio foto
-export const photos = [ph02, ph03, ph06, ph04, ph07, ph05, ph08, ph01];
 
 export const volunteerDays = [
   { key: 'ven', label: 'Ven 02' },
