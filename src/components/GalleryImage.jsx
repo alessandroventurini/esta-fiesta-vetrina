@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const GalleryImage = ({ src, alt, className = '', eager = false }) => {
   const [status, setStatus] = useState('loading');
-  return (
+  return ( 
     <div className={`overflow-hidden bg-fiesta-panel ${className}`}>
       {status !== 'loaded' && (
         <span className="absolute inset-0 flex items-center justify-center text-fiesta-cream/70 text-xs p-3" aria-hidden="true">
